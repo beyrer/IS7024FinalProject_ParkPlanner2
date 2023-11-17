@@ -1,5 +1,5 @@
 # IS7024FinalProject_ParkPlanner2
-##### (Migrated from beyrer/IS7024FinalProject)
+##### (Migrated from [beyrer/IS7024FinalProject](https://github.com/beyrer/IS7024FinalProject))
 
 ---
 
