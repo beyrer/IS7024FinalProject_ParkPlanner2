@@ -31,6 +31,7 @@
             <table class="table table-bordered table-hover">
                 <tr id="table-header">
                     <th>Park Full Name</th>
+                    <th>Park Code</th>
                     <th>State</th>
                     <th>Type of Park</th>
                     <th>Address</th>
@@ -43,6 +44,7 @@
                     {
                         <tr>
                             <td>@park.FullName</td>
+                            <td><a asp-page="./Visitor Center" asp-route-query="@park.ParkCode">@park.ParkCode</a></td>
                             <td>@park.States</td>
                             <td>@park.Designation</td>
                             <td>@park.Addresses[0].Line1</td>

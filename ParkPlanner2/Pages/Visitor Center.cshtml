@@ -1,0 +1,65 @@
+﻿@page
+@model ParkPlanner2.Pages.Visitor_CenterModel
+@using ParkPlannerVisitor
+@{
+    ViewData["Title"] = "Vistor Center";
+    var VisitorCenterList = (List<Datum>)ViewData["VisitorCenterList"];
+}
+
+<div>
+    <input id="SearchItem" value="@Model.ParkCode" name="query" class="col form-control" type="text" />
+    <div class="col-2">
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+    @if (string.IsNullOrWhiteSpace(Model.ParkCode))
+    {
+
+    }
+    else if (VisitorCenterList == null)
+    {
+        <div class="alert alert-info"> Data for Lands in this Community area number [@Model.ParkCode] not found.</div>
+    }
+    else
+    {
+        <div>
+            <br></br>
+            <table class="table table-bordered table-hover">
+                <tr id="table-header">
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Email</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                    <th>Image</th>
+                </tr>
+                @{
+                    int FirstTenLands = 0;
+                    foreach (Datum vc in VisitorCenterList)
+                    {
+                        FirstTenLands = FirstTenLands + 1;
+                        <tr>
+                            <td>@vc.Name</td>
+                            <td>@vc.Description</td>
+                            <td>@vc.Contacts.EmailAddresses[0].EmailAddressEmailAddress</td>
+                            <td>@vc.OperatingHours[0].StandardHours.Monday</td>
+                            <td>@vc.OperatingHours[0].StandardHours.Tuesday</td>
+                            <td>@vc.OperatingHours[0].StandardHours.Wednesday</td>
+                            <td>@vc.OperatingHours[0].StandardHours.Thursday</td>
+                            <td>@vc.OperatingHours[0].StandardHours.Friday</td>
+                            <td>@vc.OperatingHours[0].StandardHours.Saturday</td>
+                            <td>@vc.OperatingHours[0].StandardHours.Sunday</td>
+                            <td><img src=@vc.Images[0].Url alt="Vistor Center Photo" /></td>
+                        </tr>
+                        if (FirstTenLands == 10)
+                        { break; }
+                    }
+                }
+            </table>
+        </div>
+    }
+</div>
