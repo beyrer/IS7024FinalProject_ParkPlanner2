@@ -32,8 +32,11 @@
                 <tr id="table-header">
                     <th>Park Full Name</th>
                     <th>State</th>
-                    <th>Directions</th>
                     <th>Type of Park</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Zip Code</th>
+                    <th>Image</th>
                 </tr>
                 @{
                     foreach (Datum park in StateList)
@@ -41,8 +44,11 @@
                         <tr>
                             <td>@park.FullName</td>
                             <td>@park.States</td>
-                            <td>@park.DirectionsInfo</td>
                             <td>@park.Designation</td>
+                            <td>@park.Addresses[0].Line1</td>
+                            <td>@park.Addresses[0].City</td>
+                            <td>@park.Addresses[0].PostalCode</td>
+                            <td><img src=@park.Images[0].Url alt="Photo of the Park" /></td>
                         </tr>
                     }
                 }
