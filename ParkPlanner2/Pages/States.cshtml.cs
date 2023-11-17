@@ -11,6 +11,11 @@ namespace ParkPlanner2.Pages
         public List<string> AllStates { get; set; }
         public string Search { get; set; }
         public SelectList States { get; set; }
+        private readonly ILogger<IndexModel> _logger;
+        public StatesModel(ILogger<IndexModel> logger)
+        {
+            _logger = logger;
+        }
 
         static readonly HttpClient client = new HttpClient();
 
@@ -22,29 +27,36 @@ namespace ParkPlanner2.Pages
             List<Datum> states = new List<Datum>();
             if (result.IsSuccessStatusCode)
             {
-                Task<string> readString = result.Content.ReadAsStringAsync();
-                string jsonString = readString.Result;
-                states = Park.FromJson(jsonString).Data;
-                if (!string.IsNullOrWhiteSpace(query))
+                try
                 {
-                    var Allstates = states.ToList();
-                    var StateParks = Allstates.FindAll(x => string.Equals(x.States, query, StringComparison.OrdinalIgnoreCase)).ToList();
-
-                    if (StateParks != null && StateParks.Count > 0)
+                    Task<string> readString = result.Content.ReadAsStringAsync();
+                    string jsonString = readString.Result;
+                    states = Park.FromJson(jsonString).Data;
+                    if (!string.IsNullOrWhiteSpace(query))
                     {
+                        var Allstates = states.ToList();
+                        var StateParks = Allstates.FindAll(x => string.Equals(x.States, query, StringComparison.OrdinalIgnoreCase)).ToList();
 
-                        ViewData["StateList"] = StateParks;
+                        if (StateParks != null && StateParks.Count > 0)
+                        {
+
+                            ViewData["StateList"] = StateParks;
+                        }
+                        else
+                        {
+                            ViewData["StateList"] = null;
+                        }
                     }
                     else
                     {
                         ViewData["StateList"] = null;
                     }
+                    Search = query;
                 }
-                else
+                catch (Exception ex) 
                 {
-                    ViewData["StateList"] = null;
+                    _logger.LogError("Error during API call - States", ex);
                 }
-                Search = query;
             }
         }
         private void InitAreaDropDown()
