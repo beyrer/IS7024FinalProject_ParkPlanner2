@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Parks",
+  "definitions": {
+    "Parks": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "METADATA": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "RECDATA": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Recdatum"
+          }
+        }
+      },
+      "required": [],
+      "title": "Parks"
+    },
+    "Metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "RESULTS": {
+          "$ref": "#/definitions/Results"
+        },
+        "SEARCH_PARAMETERS": {
+          "$ref": "#/definitions/SearchParameters"
+        }
+      },
+      "required": [],
+      "title": "Metadata"
+    },
+    "Results": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "CURRENT_COUNT": {
+          "type": "integer"
+        },
+        "TOTAL_COUNT": {
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "Results"
+    },
+    "SearchParameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "LIMIT": {
+          "type": "integer"
+        },
+        "OFFSET": {
+          "type": "integer"
+        },
+        "QUERY": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "SearchParameters"
+    },
+    "Recdatum": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "AddressCountryCode": {
+          "$ref": "#/definitions/AddressCountryCodeUnion"
+        },
+        "AddressStateCode": {
+          "type": "string"
+        },
+        "City": {
+          "type": "string"
+        },
+        "FacilityAddressID": {
+          "type": "string"
+        },
+        "FacilityAddressType": {
+          "$ref": "#/definitions/FacilityAddressType"
+        },
+        "FacilityID": {
+          "type": "string",
+          "format": "integer"
+        },
+        "FacilityStreetAddress1": {
+          "type": "string"
+        },
+        "FacilityStreetAddress2": {
+          "type": "string"
+        },
+        "FacilityStreetAddress3": {
+          "type": "string"
+        },
+        "LastUpdatedDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "PostalCode": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "Recdatum"
+    },
+    "AddressCountryCodeUnion": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/AddressCountryCodeEnum"
+        },
+        {
+          "type": "string",
+          "format": "integer"
+        }
+      ],
+      "title": "AddressCountryCodeUnion"
+    },
+    "AddressCountryCodeEnum": {
+      "type": "string",
+      "enum": [
+        "USA",
+        "",
+        "United States",
+        "UNITED STATES",
+        "(352) 695-2799"
+      ],
+      "title": "AddressCountryCodeEnum"
+    },
+    "FacilityAddressType": {
+      "type": "string",
+      "enum": [
+        "Default",
+        "Physical",
+        "Mailing"
+      ],
+      "title": "FacilityAddressType"
+    }
+  }
+}

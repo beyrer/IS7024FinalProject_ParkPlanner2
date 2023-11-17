@@ -1,0 +1,444 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/VisitorCenter",
+  "definitions": {
+    "VisitorCenter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "total": {
+          "type": "string",
+          "format": "integer"
+        },
+        "limit": {
+          "type": "string",
+          "format": "integer"
+        },
+        "start": {
+          "type": "string",
+          "format": "integer"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Datum"
+          }
+        }
+      },
+      "required": [],
+      "title": "VisitorCenter"
+    },
+    "Datum": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "qt-uri-protocols": [
+            "http",
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".htm"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "parkCode": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "latLong": {
+          "type": "string"
+        },
+        "audioDescription": {
+          "type": "string"
+        },
+        "isPassportStampLocation": {
+          "type": "string",
+          "format": "integer"
+        },
+        "passportStampLocationDescription": {
+          "type": "string"
+        },
+        "passportStampImages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Image"
+          }
+        },
+        "geometryPoiId": {
+          "type": "string"
+        },
+        "amenities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contacts": {
+          "$ref": "#/definitions/Contacts"
+        },
+        "directionsInfo": {
+          "type": "string"
+        },
+        "directionsUrl": {
+          "type": "string",
+          "qt-uri-protocols": [
+            "http",
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".9478524",
+            ".htm"
+          ]
+        },
+        "operatingHours": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OperatingHour"
+          }
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Image"
+          }
+        },
+        "multimedia": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Multimedia"
+          }
+        },
+        "relevanceScore": {
+          "type": "integer"
+        },
+        "lastIndexedDate": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "Datum"
+    },
+    "Address": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "postalCode": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateCode": {
+          "type": "string"
+        },
+        "countryCode": {
+          "$ref": "#/definitions/CountryCode"
+        },
+        "provinceTerritoryCode": {
+          "type": "string"
+        },
+        "line1": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/AddressType"
+        },
+        "line3": {
+          "$ref": "#/definitions/Line3"
+        },
+        "line2": {
+          "$ref": "#/definitions/Line2"
+        }
+      },
+      "required": [],
+      "title": "Address"
+    },
+    "Contacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "phoneNumbers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PhoneNumber"
+          }
+        },
+        "emailAddresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmailAddress"
+          }
+        }
+      },
+      "required": [],
+      "title": "Contacts"
+    },
+    "EmailAddress": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "EmailAddress"
+    },
+    "PhoneNumber": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "phoneNumber": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "extension": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/PhoneNumberType"
+        }
+      },
+      "required": [],
+      "title": "PhoneNumber"
+    },
+    "Image": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "credit": {
+          "type": "string"
+        },
+        "crops": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Crop"
+          }
+        },
+        "title": {
+          "type": "string"
+        },
+        "altText": {
+          "type": "string"
+        },
+        "caption": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".gif",
+            ".jpeg",
+            ".jpg",
+            ".png"
+          ]
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "Image"
+    },
+    "Crop": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aspectRatio": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".gif",
+            ".jpeg",
+            ".jpg"
+          ]
+        }
+      },
+      "required": [],
+      "title": "Crop"
+    },
+    "Multimedia": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".htm"
+          ]
+        }
+      },
+      "required": [],
+      "title": "Multimedia"
+    },
+    "OperatingHour": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Exception"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "standardHours": {
+          "$ref": "#/definitions/Hours"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "OperatingHour"
+    },
+    "Exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exceptionHours": {
+          "$ref": "#/definitions/Hours"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "name": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [],
+      "title": "Exception"
+    },
+    "Hours": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "wednesday": {
+          "type": "string"
+        },
+        "monday": {
+          "type": "string"
+        },
+        "thursday": {
+          "type": "string"
+        },
+        "sunday": {
+          "type": "string"
+        },
+        "tuesday": {
+          "type": "string"
+        },
+        "friday": {
+          "type": "string"
+        },
+        "saturday": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "Hours"
+    },
+    "CountryCode": {
+      "type": "string",
+      "enum": [
+        "US"
+      ],
+      "title": "CountryCode"
+    },
+    "Line2": {
+      "type": "string",
+      "enum": [
+        "Salinas Pueblo Missions NM",
+        "",
+        "Suite 105",
+        "101 North College Street",
+        "Suite 306",
+        "1 Bear Valley Road",
+        "Sitnasuak Building",
+        "199 Hemphill Knob Road"
+      ],
+      "title": "Line2"
+    },
+    "Line3": {
+      "type": "string",
+      "enum": [
+        "#69 Abo Ruins Road",
+        "PO Box 517",
+        ""
+      ],
+      "title": "Line3"
+    },
+    "AddressType": {
+      "type": "string",
+      "enum": [
+        "Physical",
+        "Mailing"
+      ],
+      "title": "AddressType"
+    },
+    "PhoneNumberType": {
+      "type": "string",
+      "enum": [
+        "Voice",
+        "Fax"
+      ],
+      "title": "PhoneNumberType"
+    }
+  }
+}
