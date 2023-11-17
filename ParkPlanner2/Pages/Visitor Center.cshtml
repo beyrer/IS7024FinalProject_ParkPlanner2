@@ -7,9 +7,12 @@
 }
 
 <div>
-    <input id="SearchItem" value="@Model.ParkCode" name="query" class="col form-control" type="text" />
-    <div class="col-2">
-        <input type="submit" value="Search" class="btn btn-primary" />
+    <div class="input-group row">
+        <div class="col-2 font-weight-bold"><strong>Give a Park Code for the Visitor Center</strong></div>
+        <input id="SearchItem" value="@Model.ParkCode" name="query" class="col form-control" type="text" />
+        <div class="col-2">
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </div>
     </div>
     @if (string.IsNullOrWhiteSpace(Model.ParkCode))
     {
