@@ -1,0 +1,52 @@
+﻿@page
+@model ParkPlanner2.Pages.StatesModel
+@using ParkPlannerPark
+@{
+    ViewData["Title"] = "Parks with their States page";
+    var StateList = (List<Datum>)ViewData["StateList"];
+}
+<div>
+    <form method="get">
+        <div class="input-group row">
+            <div class="col-2 font-weight-bold"><strong>Select a State</strong></div>
+            <select class="form-select col" aria-label="Large select example" name="query" asp-for="@Model.Search" asp-items="ViewBag.Search"></select>
+            <div class="col-2">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+    @if (string.IsNullOrWhiteSpace(Model.Search))
+    {
+        <div class="alert alert-light"> Pick a State you wish to see the parks associated.</div>
+    }
+    else if (StateList == null)
+    {
+        <div class="alert alert-info"> Data for parks in @Model.Search are not found.</div>
+    }
+    else
+
+    {
+        <div>
+            <br></br>
+            <table class="table table-bordered table-hover">
+                <tr id="table-header">
+                    <th>Park Full Name</th>
+                    <th>State</th>
+                    <th>Directions</th>
+                    <th>Type of Park</th>
+                </tr>
+                @{
+                    foreach (Datum park in StateList)
+                    {
+                        <tr>
+                            <td>@park.FullName</td>
+                            <td>@park.States</td>
+                            <td>@park.DirectionsInfo</td>
+                            <td>@park.Designation</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    }
+</div>
