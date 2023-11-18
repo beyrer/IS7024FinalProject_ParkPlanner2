@@ -21,8 +21,13 @@ namespace ParkPlanner2.Pages
 
         public void OnGet(string query)
         {
+            var config = new ConfigurationBuilder()
+            .AddUserSecrets<Program>()
+            .Build();
+            string ParksApiKey = config["PP-API"];
+
             InitAreaDropDown();
-            var task = client.GetAsync("https://developer.nps.gov/api/v1/parks?api_key=mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au\r\n");
+            var task = client.GetAsync("https://developer.nps.gov/api/v1/parks?api_key=" + ParksApiKey);
             HttpResponseMessage result = task.Result;
             List<Datum> states = new List<Datum>();
             if (result.IsSuccessStatusCode)
