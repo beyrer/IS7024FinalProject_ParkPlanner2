@@ -1,0 +1,48 @@
+﻿@page
+@model ParkPlanner2.Pages.ReviewRatingModel
+@{
+    ViewData["Title"] = "Reviews and Ratings";
+    var reviews = (IList<ParkPlanner2.Review>)ViewData["ReviewList"];
+}
+
+<div class="text-center">
+    <form method="post">
+        <label for="FirstName">First name:</label><br />
+        <input type="text" name="FirstName" placeholder="First Name" size="40" /><br />
+        <label for="LastName">Last Name:</label><br />
+        <input type="text" name="LastName" placeholder="Last Name" size="40" /><br />
+        <label for="ParkName">Park Name:</label><br />
+        <input type="text" name="ParkName" placeholder="Name of the Park" size="60" /><br />
+        <label for="Rating">Rating:</label><br />
+        <input type="number" name="Rating" placeholder="What is your rating out of 5. 5 being the best and 1 being the worst" min="1" max="5" size="10" /><br />
+        <label for="Reviews">Review:</label><br />
+        <input type="text" name="Reviews" placeholder="What is your review of the Park" size="175" /><br />
+        <input id="Button1" type="submit" value="Submit" />
+    </form>
+</div>
+<div>
+    <hr />
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ParkName</th>
+            <th>Rating</th>
+            <th>Reviews</th>
+        </tr>
+        @{
+
+            foreach (ParkPlanner2.Review review in reviews)
+            {
+                <tr>
+                    <td>@review.FirstName</td>
+                    <td> @review.LastName </td>
+                    <td>@review.ParkName</td>
+                    <td> @review.Rating </td>
+                    <td> @review.Reviews</td>
+                </tr>
+            }
+
+        }
+    </table>
+</div>
