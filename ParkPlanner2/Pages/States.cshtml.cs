@@ -56,7 +56,7 @@ namespace ParkPlanner2.Pages
         {
             AllStates = new List<string>
             {
-                {"AL" },
+                {"AL"} ,
                 {"AK"} ,
                 {"AZ"} ,
                 {"AR"} ,
