@@ -20,7 +20,7 @@
     }
     else if (VisitorCenterList == null)
     {
-        <div class="alert alert-info"> Data for Lands in this Community area number [@Model.ParkCode] not found.</div>
+        <div class="alert alert-info"> Data for Vistor Center in this Park code [@Model.ParkCode] not found.</div>
     }
     else
     {
@@ -41,10 +41,8 @@
                     <th>Image</th>
                 </tr>
                 @{
-                    int FirstTenLands = 0;
                     foreach (Datum vc in VisitorCenterList)
                     {
-                        FirstTenLands = FirstTenLands + 1;
                         <tr>
                             <td>@vc.Name</td>
                             <td>@vc.Description</td>
@@ -58,8 +56,6 @@
                             <td>@vc.OperatingHours[0].StandardHours.Sunday</td>
                             <td><img src=@vc.Images[0].Url alt="Vistor Center Photo" /></td>
                         </tr>
-                        if (FirstTenLands == 10)
-                        { break; }
                     }
                 }
             </table>
