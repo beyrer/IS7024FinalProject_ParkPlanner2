@@ -37,7 +37,7 @@ namespace ParkPlanner2.Pages
             SmtpClient smtpClient = new SmtpClient();
             message.From = new MailAddress("parkplanner@zohomail.com");
             message.To.Add("jamesonzink@gmail.com");
-            message.Subject = "Test email";
+            message.Subject = "Email from Park Planner Site";
             message.IsBodyHtml = true;
             message.Body = "<p>Name: " + name + "</p>" + "<p>Email: " + email + "</p>" + "<p>Subject: " + subject + "</p>" + "<p>Message: " + messageForm + "</p>";
 
