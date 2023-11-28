@@ -1,0 +1,31 @@
+﻿@page
+@model ParkPlanner2.Pages.Classmate_JSONModel
+@using ClassmateData
+@{
+    ViewData["Title"] = "Classmate Data";
+    var classmatejson = (List<Classmate>)ViewData["Classmate"];
+}
+
+<div>
+    <table class="table table-bordered table-hover">
+        <tr id="table-header">
+            <th>Name</th>
+            <th>Sex</th>
+            <th>Race</th>
+            <th>Business Title</th>
+            <th>Location</th>
+        </tr>
+        @{
+            foreach (Classmate classm in classmatejson)
+            {
+                <tr>
+                    <td>@classm.Name</td>
+                    <td>@classm.Sex</td>
+                    <td>@classm.Race</td>
+                    <td>@classm.BusinessTitle</td>
+                    <td>@classm.Location</td>
+                </tr>
+            }
+        }
+     </table>
+</div>
