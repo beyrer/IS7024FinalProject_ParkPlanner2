@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ParkPlannerVisitor;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Net.Http;
 
 namespace ParkPlanner2.Pages
 {
@@ -15,7 +17,13 @@ namespace ParkPlanner2.Pages
         static readonly HttpClient client = new HttpClient();
         public void OnGet(string query)
         {
-            var task = client.GetAsync("https://developer.nps.gov/api/v1/visitorcenters?api_key=mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au\r\n");
+            var config = new ConfigurationBuilder()
+            .AddUserSecrets<Program>()
+            .Build();
+            string VisitorApiKey = config["PP-API"];
+
+
+            var task = client.GetAsync("https://developer.nps.gov/api/v1/visitorcenters?api_key=" + VisitorApiKey);
             HttpResponseMessage result = task.Result;
             List<Datum> VC = new List<Datum>();
             if (result.IsSuccessStatusCode)
