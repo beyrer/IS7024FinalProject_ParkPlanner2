@@ -13,7 +13,8 @@ Group 1
 - Jessie Beyrer
 
 ## Important Information For Project Grading
-The API Key for this project is "mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au"
+The API Key for this project is "mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au"  
+
 Please run "dotnet user-secrets init" and "dotnet user-secrets set PP-API mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au" in Visual Studio Developer Powershell terminal before trying to run this in IIS Express mode in Visual Studio. 
 
 ## Introduction  
