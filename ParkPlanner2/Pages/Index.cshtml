@@ -3,11 +3,41 @@
 @using ParkPlannerPark
 @{
     ViewData["Title"] = "Home page";
-
+    <link rel="stylesheet" href="~/@(nameof(ParkPlanner2)).styles.css" />
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Park Place</h1>
-    <h2>Please stay tuned. Our site is currently under construction.</h2>
-    <img src="https://user-images.githubusercontent.com/88552005/277193898-3a55302a-d57f-4ee4-86c3-15473b3e651e.jpg" alt="Park Planner" width="500">
+
+
+<div class="bg-dark row gx-5 justify-content-center">
+    <div class="col-lg-6">
+        <div class="text-center my-5">
+            <h1 class="display-5 fw-bolder text-white mb-2">Park Planner</h1>
+            <p class="lead text-white-50 mb-4">Park Planner is your one-stop destination for finding the best park, no matter where you are.</p>
+            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                <a class="btn btn-outline-light btn-lg px-4" href="States">Visit a Park Near You</a>
+                <a class="btn btn-outline-light btn-lg px-4" href="ReviewRating">Leave a Review</a>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<div class="bg-warning bg-opacity-75 row gx-5 justify-content-center">
+    <img class="img-fluid" src="https://i.postimg.cc/8kWxV4TH/image0-2.jpg">
+</div>
+
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+    <div class="col-md-7">
+        <h2 class="featurette-heading">We find the park. <span class="text-muted">So you don't have to.</span></h2>
+        <p class="lead">Here at Park Planner, we take the planner part of our name seriously. We want to be your want stop shop for all park accommodations so you can get on the road to having a good time.</p>
+    </div>
+    <div class="col-md-5">
+        <!--source unsplash-->
+        <img class="featurette-image img-fluid mx-auto" src="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Generic placeholder image">
+    </div>
+</div>
+
+
