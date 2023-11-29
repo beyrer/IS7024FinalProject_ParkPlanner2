@@ -89,9 +89,9 @@ Then I should be able to post that review to Park Planner.
 ## Team Composition  
 
 ### Team Members
-- Neil Bechmann (Data Guru)
-- Jameson Zink (Developer/ProjectManager/ScrumGenius/AQ)
-- Jessie Beyrer (Code Monkey)
+- Neil Bechmann (Lead Dev)
+- Jameson Zink (Developer and Lead Design)
+- Jessie Beyrer (Developer and Azure/GitHub Administrator)
 
 ### Meeting Cadence
 - Weekly meetings Saturdays at 5 pm
