@@ -89,7 +89,7 @@ Then I should be able to post that review to Park Planner.
 ## Team Composition  
 
 ### Team Members
-- Neil Bechmann (Lead Dev)
+- Neil Bechmann (Lead Developer)
 - Jameson Zink (Developer and Lead Design)
 - Jessie Beyrer (Developer and Azure/GitHub Administrator)
 
