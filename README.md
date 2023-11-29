@@ -12,6 +12,10 @@ Group 1
 - Jameson Zink
 - Jessie Beyrer
 
+## Important Information For Project Grading
+The API Key for this project is "mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au"
+Please run "dotnet user-secrets init" and "dotnet user-secrets set PP-API mLBONbm3NZfawfBoS0w4bXT3yyJ1nBpLhqh6o0Au" in Visual Studio Developer Powershell terminal before trying to run this in IIS Express mode in Visual Studio. 
+
 ## Introduction  
 
 As we look out the window today in mid-autumn, the leaves are turning multiple colors and people are longing to walk under the branches.  We wanted to find a way to plan trips to various parks for families, individuals, or any group of people wanting to experience nature.  
