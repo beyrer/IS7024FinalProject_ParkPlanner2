@@ -8,14 +8,14 @@ namespace ParkPlanner2.Pages
 {
     public class Visitor_CenterModel : PageModel
     {
-        public string ParkCode { get; set; }
+        public string Parkcode { get; set; }
         private readonly ILogger<IndexModel> _logger;
         public Visitor_CenterModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
         }
         static readonly HttpClient client = new HttpClient();
-        public void OnGet(string query)
+        public async Task OnGetAsync(string query)
         {
             var config = new ConfigurationBuilder()
             .AddUserSecrets<Program>()
@@ -36,12 +36,12 @@ namespace ParkPlanner2.Pages
                     if (!string.IsNullOrWhiteSpace(query))
                     {
                         var AllVisitorCenter = VC.ToList();
-                        var VisitorCenter = AllVisitorCenter.FindAll(x => string.Equals(x.ParkCode, query, StringComparison.OrdinalIgnoreCase)).ToList();
+                        var VisitorCenters = AllVisitorCenter.FindAll(x => string.Equals(x.ParkCode, query, StringComparison.OrdinalIgnoreCase)).ToList();
 
-                        if (VisitorCenter != null && VisitorCenter.Count > 0)
+                        if (VisitorCenters != null && VisitorCenters.Count > 0)
                         {
 
-                            ViewData["VisitorCenterList"] = VisitorCenter;
+                            ViewData["VisitorCenterList"] = VisitorCenters;
                         }
                         else
                         {
@@ -52,7 +52,7 @@ namespace ParkPlanner2.Pages
                     {
                         ViewData["VisitorCenterList"] = null;
                     }
-                    ParkCode = query;
+                    Parkcode = query;
                 }
                 catch (Exception ex)
                 {

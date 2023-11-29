@@ -7,20 +7,22 @@
 }
 
 <div>
-    <div class="input-group row">
-        <div class="col-2 font-weight-bold"><strong>Give a Park Code for the Visitor Center</strong></div>
-        <input id="SearchItem" value="@Model.ParkCode" name="query" class="col form-control" type="text" />
-        <div class="col-2">
-            <input type="submit" value="Search" class="btn btn-primary" />
+    <form method="get">
+        <div class="input-group row">
+            <div class="col-2 font-weight-bold"><strong>Give a Park Code for the Visitor Center</strong></div>
+            <input id="SearchItem" value="@Model.Parkcode" name="query" class="col form-control" type="text" />
+            <div class="col-2">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
         </div>
-    </div>
-    @if (string.IsNullOrWhiteSpace(Model.ParkCode))
+    </form>
+    @if (string.IsNullOrWhiteSpace(Model.Parkcode))
     {
 
     }
     else if (VisitorCenterList == null)
     {
-        <div class="alert alert-info"> Data for Vistor Center in this Park code [@Model.ParkCode] not found.</div>
+        <div class="alert alert-info"> Data for Vistor Center in this Park code [@Model.Parkcode] not found.</div>
     }
     else
     {
