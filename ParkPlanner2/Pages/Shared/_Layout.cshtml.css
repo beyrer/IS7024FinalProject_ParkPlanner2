@@ -61,3 +61,7 @@ body {
     padding-top: 56px;
     position: relative;
 }
+
+.paddingForNav {
+    padding-top: 4em;
+}
