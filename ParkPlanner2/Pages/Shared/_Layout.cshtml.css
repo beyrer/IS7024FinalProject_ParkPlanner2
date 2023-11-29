@@ -47,3 +47,17 @@ button.accept-policy {
   line-height: 60px;
 }
 
+.navbar-color {
+    background-color: #FFCF4F;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    padding-top: 56px;
+    position: relative;
+}
