@@ -85,7 +85,6 @@ Then I should be able to post that review to Park Planner.
 ## Data Sources
 
 -	[National Park Service](https://www.nps.gov/subjects/developer/api-documentation.htm)
--	[Recreation.gov](https://ridb.recreation.gov/docs)
 
 ## Team Composition  
 
